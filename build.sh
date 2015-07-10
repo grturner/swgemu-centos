@@ -10,7 +10,7 @@
 #############################################
 
 cd ~/git/Core3/MMOCoreORB
-export CLASSPATH=/home/swgemu/git/Core3/MMOEngine/bin/idlc.jar
+export CLASSPATH=/home/`whoami`/git/Core3/MMOEngine/bin/idlc.jar
 
 EXTRA=$1
 
@@ -19,9 +19,11 @@ if [ ! -f build/unix/config.log ]; then
 	EXTRA='config'
 fi
 
-case $EXTRA
-	config ) make config; make clean ;;
-	clean ) make clean ;;
+case $EXTRA in
+	config ) make config && make clean 
+	;;
+	clean ) make clean 
+	;;
 esac
 
 if make -k build; then

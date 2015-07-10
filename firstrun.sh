@@ -13,8 +13,9 @@ echo "SWGEmu CentOS 6 Setup and Install"
 
 
 #### Install required pkgs
-echo "We will now install some packages."
-sudo yum -y install gcc-c++ make gdb automake git lua lua-devel mysql-server mysql-devel java-1.8.0-openjdk boost-devel
+echo "Installing required packages."
+read -p "Press any key to continue."
+sudo yum -y install gcc-c++ make gdb automake git lua lua-devel mysql-server mysql-devel java-1.8.0-openjdk boost-devel wget
 sudo chkconfig mysqld on
 #### Fix this ######################################
 #
@@ -35,8 +36,12 @@ rm -rf /tmp/db-5.0.32.NC
 
 #### Anonymous git pull ####
 cd ~
-mkdir ./git
-cd git
+if [ -d ~/git ]; then
+	cd ~/git
+else
+	mkdir ~/git
+	cd ~/git
+fi
 git clone http://gerrit.swgemu.com/Core3
 git clone http://gerrit.swgemu.com/PublicEngine
 
@@ -46,5 +51,5 @@ ln -s ~/git/PublicEngine/MMOEngine ~/git/Core3/MMOEngine
 sudo ln -s ~/git/PublicEngine/MMOEngine/bin/idlc /usr/local/bin/idlc
 chmod 755 ~/git/PublicEngine/MMOEngine/bin/idlc
 
-echo "Your system is now be configured to build SWGEmu"
+echo "Your system is now configured to build SWGEmu"
 exit 1
