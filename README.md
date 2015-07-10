@@ -2,8 +2,8 @@
 Scripts for setting up SWGEmu server on CentOS 6
 
 ## Todo
-*Test / debug existing scripts using non-theoretical conditions
-*Create and test database script
+* Test / debug existing scripts using non-theoretical conditions
+* Create and test database script
 
 ## Credits
 While some of these scripts are of my own creation, a good portion of the functional tidbits are either reworked from scripts meant for other distros or compiled using information presented by others.
